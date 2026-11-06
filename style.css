@@ -1,0 +1,1647 @@
+/* ----------Fonts---------- */
+
+@font-face {
+    font-family: "Inter";
+    src: url("resources/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url("resources/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asta Sans";
+    src: url("resources/fonts/Asta_Sans/static/AstaSans-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asul";
+    src: url("resources/fonts/Asul/Asul-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Asul";
+    src: url("resources/fonts/Asul/Asul-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ----------Reset---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+h1,h2,h3,p,figure,blockquote{
+    margin: 0;
+}
+
+ul,ol{
+    padding: 0;
+    margin: 0;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+body{
+    margin: 0;
+}
+
+/* This is for labels that we dont want to be shown, but we want them
+for the accesibility instead of using aria-labels, I search on google and I saw
+that doing this is a good practise because aria-labels should be the last opction
+is we don't have something else for accesibility. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* ----------Custom Properties---------- */
+
+:root{
+    --primary-color: #00839F;
+    --background-color:#0F0F12;
+    --subtitle-color:#9E9E9E;
+    --line-color: rgba(255, 255, 255, 0.15);
+    --hover-color: rgba(255, 255, 255, 0.05);
+    --card-color: #18181D;
+
+}
+
+/* ----------Hero---------- */
+
+.hero-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    background-image: url(resources/hero_pc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+
+    /* LOGO */
+    .left {
+        flex: 1;
+        margin-top: 20px;
+        margin-left: 50px;
+    }
+
+    .mid {
+        flex: 5;
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        /* TEXT */
+        p {
+            font-family: "Asta Sans", sans-serif;
+            color: var(--primary-color);
+            font-weight: bolder;
+            font-size: clamp(18px, 2vw, 20px);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            color: white;
+            font-size: clamp(48px, 8vw, 94px);
+        }
+
+        .hero-title {
+            font-family: "Asta Sans", sans-serif;
+            color:var(--subtitle-color) ;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: clamp(16px, 1.8vw, 20px);
+            margin-top: -12.5px;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(16px, 5vw, 100px);
+            margin-top: clamp(40px, 8vw, 100px);
+
+            a {
+                display: block;
+                padding: 14px 30px;
+                border-radius: 6px;
+                white-space: nowrap;
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+            }
+
+            .left-button a {
+                background-color: var(--primary-color);
+                color: var(--background-color);
+
+                &:hover {
+                        background-color: transparent;
+                        color:var(--primary-color);
+                        border:var(--primary-color) solid 1px;
+                    }
+            }
+
+            .right-button a {
+                border: solid white 1px;
+                color: white;
+
+                &:hover {
+                    background-color: white;
+                    color: var(--background-color);
+                }
+            }
+        }
+    }
+
+    /* NAV */
+    .right {
+        flex: 6;
+        margin-top: 20px;
+        margin-right: 50px;
+
+        a {
+            color: white;
+            text-transform: uppercase;
+            font-family: "Inter", sans-serif;
+        }
+
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            gap: 32px;
+        }
+    }
+}
+
+/* ----------BIOGRAPHY---------- */
+
+.bio-container{
+    background-color: var(--background-color);
+    width: 100%;
+    padding: 0 max(4vw, 20px);
+
+    .bio-title{
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: clamp(34px, 6vw, 80px);
+        font-family: "Asta Sans", sans-serif;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .lower-bio{
+        display: flex;
+        gap: 40px;
+
+        .bio-image-container{
+            flex: 1;
+            position: relative;
+
+            .bio-image{
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+        }
+
+        .bio-text{
+            flex: 1;
+            color: white;
+            text-align: justify;
+            font-family: "Asta Sans", sans-serif;
+            font-size: clamp(14px, 1.2vw, 24px);
+            font-weight: 300;
+            line-height: 1.4;
+
+            h3{
+                margin-top: 16px;
+            }
+
+            strong{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+/* ----------ALBUMS---------- */
+
+.albums-container{
+    background-color: var(--background-color);
+    width: 100%;
+    padding: 0 max(4vw, 20px);
+
+    .albums-main-title{
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: clamp(34px, 6vw, 80px);
+        font-family: "Asta Sans", sans-serif;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .lower-albums{
+        display: flex;
+        gap: 40px;
+
+                .albums-image-container{
+            flex: 2;
+            position: relative;
+
+            .albums-video-link{
+                position: absolute;
+                inset: 0;
+
+                &:focus-visible{
+                    outline: 3px solid var(--primary-color);
+                    outline-offset: 4px;
+                }
+
+                &:hover .albums-play{
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+            }
+
+            .albums-image{
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            .albums-play{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+                transform: translate(-50%, -50%);
+                transition: transform 0.3s ease;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-35%, -50%);
+                    border-style: solid;
+                    border-width: 14px 0 14px 24px;
+                    border-color: transparent transparent transparent var(--background-color);
+                }
+            }
+        }
+
+        .albums-text-container{
+            flex:3;
+
+            .albums-p{
+                color: var(--primary-color);
+                font-size: clamp(18px, 3vw, 28px);
+                font-family: "Inter";
+                font-weight: bold;
+            }
+
+            .albums-title{
+                color: white;
+                font-family: "Asul";
+                font-size: clamp(56px, 6vw, 72px);
+            }
+
+            .albums-subtitle{
+                color:var(--subtitle-color);
+                font-family: "Inter";
+                font-weight: 500;
+                font-size: clamp(18px, 3vw, 28px);
+                margin-top: -1px;
+            }
+
+            .albums-tracklist{
+                display: flex;
+                gap: clamp(20px, 3vw, 40px);
+                margin-top: clamp(16px, 2vw, 24px);
+
+                .left-tracklist,
+                .right-tracklist{
+                    flex: 1;
+                }
+
+                ol{
+                    padding-left: 1.6em;
+                }
+
+                li{
+                    list-style: decimal;
+                    margin-bottom: clamp(8px, 1vw, 14px);
+                    font-family: "Asta Sans", sans-serif;
+                    font-size: clamp(12px, 1vw, 20px);
+                    font-weight: 500;
+                    color: white;
+                }
+
+                li::marker{
+                    color: var(--primary-color);
+                    font-size: 0.8em;
+                }
+
+                .track-name{
+                    display: block;
+                }
+
+                .track-feat{
+                    display: block;
+                    font-size: 0.8em;
+                    font-weight: 300;
+                    color: var(--subtitle-color);
+                }
+            }
+
+            .albums-button{
+                margin-top: 24px;
+
+                a{
+                    display: inline-block;
+                    padding: 14px 30px;
+                    border-radius: 6px;
+                    background-color: var(--primary-color);
+                    color: var(--background-color);
+                    font-family: "Inter", sans-serif;
+                    font-weight: 700;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        background-color: transparent;
+                        color:var(--primary-color);
+                        border:var(--primary-color) solid 1px;
+                    }
+                }
+            }
+        }
+    }
+
+    .old-albums{
+        margin-top: 5rem;
+        padding-bottom: 4rem;
+
+        .old-albums-title{
+            color: white;
+            font-family: "Asta Sans", sans-serif;
+            text-transform: uppercase;
+            font-size: clamp(24px, 3vw, 40px);
+            margin-bottom: 2rem;
+        }
+
+        /* --The slider-- */
+
+        .old-albums-slider{
+            position: relative;
+            padding: 0 64px;
+            --gap: 24px;
+            --card: calc((100% - 2 * var(--gap)) / 3);
+
+            &:has(input:nth-child(2):checked){ --i: 1; }
+            &:has(input:nth-child(3):checked){ --i: 2; }
+
+            .old-albums-viewport{
+                overflow: hidden;
+            }
+
+            .old-albums-track{
+                display: flex;
+                gap: var(--gap);
+                transform: translateX(calc((var(--card) + var(--gap)) * var(--i, 0) * -1));
+                transition: transform 0.5s ease;
+            }
+
+            /* Each old-album card with its photo,title,age */
+
+            .old-album-card{
+                flex: 0 0 var(--card);
+
+                img{
+                    width: 100%;
+                    aspect-ratio: 1;
+                    object-fit: cover;
+                }
+
+                h4{
+                    color: white;
+                    font-family: "Asta Sans", sans-serif;
+                    font-weight: 500;
+                    font-size: clamp(14px, 1.4vw, 22px);
+                    margin-top: 12px;
+                }
+
+                p{
+                    color: var(--subtitle-color);
+                    font-family: "Inter", sans-serif;
+                    font-size: clamp(12px, 1vw, 18px);
+                }
+
+                .old-album-button{
+                    margin-top: 24px;
+                    display: flex;
+                    justify-content: center;
+
+                    a{
+                        display: inline-block;
+                        padding: 10px 20px;
+                        font-size: .75rem;
+                        border-radius: 6px;
+                        background-color: var(--primary-color);
+                        color: var(--background-color);
+                        font-family: "Inter", sans-serif;
+                        font-weight: 700;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            background-color: transparent;
+                            color:var(--primary-color);
+                            border:var(--primary-color) solid 1px;
+                        }
+                    }
+                }
+            }
+
+            /* The dots that are placed below to go from a card to another */
+
+            .old-albums-dots{
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 24px;
+
+                input{
+                    appearance: none;
+                    margin: 0;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    border: 1px solid var(--primary-color);
+                    cursor: pointer;
+
+                    &:checked{
+                        background-color: var(--primary-color);
+                    }
+                }
+            }
+
+            /* The arrows that are placed on the sides to go from a card to another */
+
+            .arrow{
+                display: none;
+                position: absolute;
+                top: 35%;
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+                font-weight: 700;
+                font-family: "Inter";
+                align-items: center;
+                justify-content: center;
+                background-color: var(--background-color);
+                color: var(--primary-color);
+                cursor: pointer;
+            }
+
+            .prev-to-1,
+            .prev-to-2{ left: 0; }
+
+            .next-to-2,
+            .next-to-3{ right: 0; }
+
+            &:has(#old-2:checked) .prev-to-1,
+            &:has(#old-3:checked) .prev-to-2,
+            &:has(#old-1:checked) .next-to-2,
+            &:has(#old-2:checked) .next-to-3{
+                display: flex;
+            }
+        }
+    }
+
+    /* The last part of albums, the single and collabs part(because is not a section) */
+
+    .singles-collabs-container {
+        margin-top: 5rem;
+        padding-bottom: 4rem;
+        width: 100%;
+        color: white;
+        font-family: "Asta Sans";
+
+        .singles-collabs-title {
+            color: white;
+            font-family: "Asta Sans";
+            text-transform: uppercase;
+            font-size: clamp(24px, 3vw, 40px);
+            margin-bottom: 2rem;
+        }
+
+        .single-collab {
+            border-bottom: 1px solid var(--line-color);
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--hover-color);
+            }
+
+            .collab-row {
+                display: flex;
+                align-items: center;
+                gap: clamp(12px, 2vw, 24px);
+                padding: clamp(12px, 1.2vw, 18px) clamp(4px, 1vw, 12px);
+                cursor: pointer;
+
+                /* When someone wants to use the web with "tab", to make easier the identification
+                of where he/she is */
+                &:focus-visible {
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: -2px;
+                }
+            }
+
+            /*This hides a default triangle on safari (I'm not sure i saw it on a web
+            and they said is a good practice to use this) */
+            summary::-webkit-details-marker{
+                display: none; 
+            }
+
+            .collab-info {
+                flex: 1;
+                min-width: 0;
+                display: flex;
+                align-items: center;
+                gap: clamp(8px, 2vw, 24px);
+                font-size: clamp(14px, 1.3vw, 20px);
+
+                .collab-title,
+                .collab-subtitle,
+                .collab-year {
+                    min-width: 0;
+                    /* If the text doesn't fit, it will wrap below instead of just
+                     going outside the box */
+                    overflow-wrap: anywhere;
+                }
+
+                .collab-title {
+                    flex: 1 1 0;
+                    font-weight: 700;
+                }
+
+                .collab-subtitle {
+                    flex: 1.5 1 0;
+                    font-weight: 400;
+                }
+
+                .collab-year {
+                    flex: 1 1 0;
+                    font-weight: 400;
+                }
+            }
+
+            /* The "button */
+            .collab-btn {
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px;
+                color: var(--primary-color);
+                transition: transform 0.2s ease;
+
+                svg {
+                    width: clamp(22px, 2.4vw, 34px);
+                    height: auto;
+                }
+            }
+
+            /* With the mouse over all the div, the play button will grow */
+            .collab-row:hover .collab-btn {
+                transform: scale(1.15);
+            }
+
+            /* The spotify embed */
+            iframe {
+                display: block;
+                width: 100%;
+                margin-bottom: 16px;
+                border: none;
+                border-radius: 12px;
+            }
+        }
+    } 
+}
+
+/* ----------ON TOUR---------- */
+
+.on-tour-container {
+    background-color: var(--background-color);
+    width: 100%;
+    padding: 0 max(4vw, 20px);
+
+    .on-tour-title{
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: clamp(34px, 6vw, 80px);
+        font-family: "Asta Sans";
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .main-on-tour {
+        display: flex;
+        gap: 40px;
+
+        /* When "X" is selected: display flex shows it(it changes the display none) */
+        &:has(#show-14:checked) .show-14,
+        &:has(#show-18:checked) .show-18,
+        &:has(#show-23:checked) .show-23,
+        &:has(#show-27:checked) .show-27,
+        &:has(#show-30:checked) .show-30 {
+            display: flex;
+        }
+    }
+
+    /* -------INTERACTIVE CALENDAR------- */
+    .on-tour-calendar {
+        flex: 2;
+        font-family: "Asta Sans";
+
+        .calendar-month {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: clamp(16px, 1.4vw, 22px);
+            margin-bottom: 16px;
+        }
+
+        .calendar-weekdays,
+        .calendar-week {
+            display: flex;
+        }
+
+        /* Each day and week day takes 1/7 of the flex*/
+        .calendar-weekdays span,
+        .calendar-day {
+            flex: 0 0 calc(100% / 7);
+        }
+
+        .calendar-weekdays span {
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            font-size: clamp(14px, 1.2vw, 20px);
+            margin-bottom: 12px;
+        }
+
+        /* Because 1 was sunday */
+        .first-week {
+            justify-content: flex-end;
+        }
+
+        .calendar-day {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+
+            /* This is to hide the radio */
+            input {
+                position: absolute;
+                opacity: 0;
+                margin: 0;
+            }
+        }
+
+        /* The number is the circle */
+        .day-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(32px, 3vw, 44px);
+            height: clamp(32px, 3vw, 44px);
+            border-radius: 50%;
+            color: white;
+            font-size: clamp(14px, 1.2vw, 20px);
+        }
+
+        /* Days with a concert */
+        .concert {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        input:checked + .concert {
+            background-color: var(--primary-color);
+        }
+
+        /* When someone wants to use the web with "tab", to make easier the identification
+        of where he/she is(same as in albums) */
+        input:focus-visible + .concert {
+            outline: 2px solid white;
+            outline-offset: 3px;
+        }
+    }
+
+    /* ------MAP+PLACE+DATE+BUTTONS----- */
+    .on-tour-info-container {
+        flex: 3;
+
+        /* All the shows are hidden by default(except the preselected in radio)
+        The reason why it's shown even with a display none, is because in css
+        an id is more important than a class, so the class is telling them not to show
+        but before with an id we said that if it's checked then show.(to be honest I didn't
+        knew this I hadto search it) */
+        .show {
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .next-show-city {
+            color: white;
+            font-family: "Asul";
+            font-size: clamp(36px, 4vw, 56px);
+        }
+
+        .next-show-date {
+            color: var(--primary-color);
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: clamp(12px, 1.1vw, 18px);
+        }
+
+        .next-show-adress {
+            color: var(--subtitle-color);
+            font-family: "Asta Sans", sans-serif;
+            font-size: clamp(12px, 1vw, 16px);
+        }
+
+        .next-show-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+
+            a {
+                display: block;
+                padding: 14px 30px;
+                border-radius: 6px;
+                white-space: nowrap;
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .next-show-tickets a {
+                background-color: var(--primary-color);
+                color: var(--background-color);
+
+                &:hover {
+                        background-color: transparent;
+                        color:var(--primary-color);
+                        border:var(--primary-color) solid 1px;
+                    }
+            }
+
+            .next-show-maps a {
+                border: solid white 1px;
+                color: white;
+
+                &:hover {
+                    background-color: white;
+                    color: var(--background-color);
+                }
+            }
+        }
+
+        .next-show-map iframe {
+            display: block;
+            width: 100%;
+            height: clamp(240px, 24vw, 340px);
+            border: none;
+            border-radius: 12px;
+        }
+    }
+
+    /* --------LAST SHOW------ */
+    .on-tour-last-show {
+        display: flex;
+        gap: 24px;
+        margin-top: 5rem;
+        padding-bottom: 4rem;
+
+        .on-tour-image {
+            flex: 4;
+            position: relative;
+
+            img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+
+        .on-tour-info-last-show {
+            flex: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+            padding: clamp(20px, 3vw, 48px);
+            border-radius: 10px;
+            background-color: var(--card-color);
+
+            .last-show-title {
+                color: white;
+                font-family: "Asul";
+                font-weight: 400;
+                font-size: clamp(32px, 3.6vw, 52px);
+            }
+        }
+
+        .on-tour-other-container {
+            display: flex;
+            align-items: center;
+            gap: clamp(16px, 2vw, 32px);
+        }
+
+        .other-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .on-tour-date,
+        .on-tour-place {
+            display: block;
+        }
+
+        .on-tour-date {
+            color: var(--primary-color);
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: clamp(12px, 1.1vw, 18px);
+        }
+
+        .on-tour-place {
+            color: var(--subtitle-color);
+            font-family: "Asta Sans", sans-serif;
+            font-size: clamp(12px, 1vw, 16px);
+            margin-top: 4px;
+        }
+
+        .on-tour-last-button a {
+            display: inline-block;
+            padding: 14px 30px;
+            border: solid white 1px;
+            border-radius: 6px;
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            &:hover {
+                background-color: white;
+                color: var(--background-color);
+            }
+        }
+
+        .last-show-image {
+            flex: 1;
+
+            img {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+/* ----------CONTACT---------- */
+
+.contact-container {
+    background-color: var(--background-color);
+    width: 100%;
+    padding: 0 max(4vw, 20px);
+
+    .contact-title-container {
+        text-align: center;
+    }
+
+    .contact-title {
+        color: white;
+        text-transform: uppercase;
+        font-size: clamp(34px, 6vw, 80px);
+        font-family: "Asta Sans";
+        padding-top: 3rem;
+    }
+
+    .contact-subtitle {
+        color: var(--primary-color);
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: clamp(14px, 1.4vw, 20px);
+        padding-bottom: 3rem;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: transparent;
+            border: 1px solid var(--subtitle-color);
+            border-radius: 6px;
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(14px, 1.1vw, 16px);
+
+            &::placeholder {
+                color: var(--subtitle-color);
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-button button {
+            padding: clamp(10px, 1vw, 14px) clamp(20px, 2.2vw, 30px);
+            background-color: transparent;
+            border: solid white 1px;
+            border-radius: 6px;
+            color: white;
+            font-family: "Inter", sans-serif;
+            font-size: clamp(12px, 1vw, 16px);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover {
+                background-color: white;
+                color: var(--background-color);
+            }
+        }
+    }
+
+    /* -------MERCH------- */
+    .merch-container {
+        margin-top: 5rem;
+        padding-bottom: 4rem;
+
+        .merch-title {
+            color: white;
+            font-family: "Asul";
+            font-size: clamp(24px, 3vw, 40px);
+            margin-bottom: 2rem;
+        }
+
+        .merch-cards {
+            display: flex;
+            gap: clamp(16px, 2vw, 32px);
+        }
+
+        .merch-card {
+            flex: 1;
+            padding: clamp(12px, 1.5vw, 24px);
+            background-color: var(--card-color);
+
+            /* The photo box is darker than the card, with a 2:1 shape like in the mockup */
+            .merch-image {
+                background-color: var(--background-color);
+                aspect-ratio: 2 / 1;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .merch-info {
+                margin-top: clamp(12px, 1.2vw, 20px);
+            }
+
+            .merch-name {
+                color: white;
+                font-family: "Asta Sans", sans-serif;
+                font-weight: 700;
+                font-size: clamp(14px, 1.4vw, 22px);
+            }
+
+            .merch-price {
+                color: var(--subtitle-color);
+                font-family: "Inter", sans-serif;
+                font-size: clamp(12px, 1vw, 18px);
+                margin-top: 4px;
+            }
+
+            .merch-button {
+                margin-top: clamp(12px, 1.2vw, 20px);
+
+                a {
+                    display: inline-block;
+                    padding: clamp(8px, 0.8vw, 10px) clamp(16px, 1.6vw, 20px);
+                    border-radius: 6px;
+                    background-color: var(--primary-color);
+                    color: var(--background-color);
+                    font-family: "Inter", sans-serif;
+                    font-size: clamp(10px, 0.8vw, 12px);
+                    font-weight: 700;
+                    text-transform: uppercase;
+
+                    &:focus-visible {
+                        outline: 2px solid white;
+                        outline-offset: 3px;
+                    }
+
+                    &:hover {
+                        background-color: transparent;
+                        color:var(--primary-color);
+                        border:var(--primary-color) solid 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ----------FOOTER---------- */
+
+footer {
+    background-color: var(--background-color);
+    width: 100%;
+    padding: 0 max(4vw, 20px) 2rem;
+
+    .footer-container {
+        border-top: 1px solid var(--line-color);
+        padding-top: 1.5rem;
+    }
+
+    .footer-top {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        .footer-email,
+        .footer-location {
+            flex: 4;
+        }
+
+        .footer-social {
+            flex: 2;
+            display: flex;
+            justify-content: flex-end;
+            gap: clamp(12px, 1.5vw, 20px);
+        }
+    }
+
+    .footer-label {
+        color: var(--primary-color);
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: clamp(10px, 0.8vw, 12px);
+    }
+
+    .footer-text {
+        color: var(--subtitle-color);
+        font-family: "Asta Sans", sans-serif;
+        font-size: clamp(12px, 1vw, 16px);
+    }
+
+    .footer-social a {
+        display: flex;
+        color: white;
+        transition: color 0.2s ease;
+
+        svg {
+            width: clamp(20px, 2vw, 28px);
+            height: auto;
+        }
+
+        &:hover {
+            color: var(--primary-color);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 3px;
+        }
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5rem;
+        color: var(--subtitle-color);
+        font-family: "Inter", sans-serif;
+        font-size: clamp(10px, 0.8vw, 12px);
+        text-transform: uppercase;
+
+        .footer-back {
+            color: var(--subtitle-color);
+
+            &:hover {
+                color: white;
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 3px;
+            }
+        }
+    }
+}
+
+
+
+/*-------------------RESPONSIVE----------------------*/
+body{
+    background-color: var(--background-color);
+}
+
+.bio-container,
+.albums-container,
+.on-tour-container,
+.contact-container,
+footer{
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: max(4vw, 20px);
+}
+
+.hero-container{
+    min-height: 100vh;
+    min-height: 100svh;
+
+    .left{
+        flex: 0 0 auto;
+        margin-right: 3vw;
+    }
+
+    .mid{
+        flex: 1 1 0;
+        min-width: 0;
+
+        h1{
+            font-size: clamp(48px, 6.5vw, 94px);
+        }
+    }
+
+    .right{
+        flex: 0 0 auto;
+    }
+}
+
+.hero-container .right{
+    .menu-toggle,
+    .menu-button{
+        display: none;
+    }
+}
+
+footer .footer-text{
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1200px){
+    .hero-container{
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+        padding: 20px max(4vw, 20px) 48px;
+
+        .left{
+            order: 1;
+            flex: 1 1 auto;
+            margin: 0;
+        }
+
+        .right{
+            order: 2;
+            margin: 0;
+            align-self: center;
+
+            ul{
+                flex-wrap: wrap;
+                gap: 4px 24px;
+            }
+        }
+
+        .mid{
+            order: 3;
+            flex: 0 0 100%;
+            min-height: calc(100svh - 140px);
+            margin-top: 0;
+            padding-top: 32px;
+        }
+    }
+}
+
+
+@media (max-width: 900px){
+    .hero-container{
+        background-image: url(resources/hero-movil.jpg);
+        background-position: center top;
+
+        .right{
+            position: relative;
+
+            .menu-toggle{
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 44px;
+                height: 44px;
+                margin: 0;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .menu-button{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                width: 44px;
+                height: 44px;
+
+                span{
+                    display: block;
+                    width: 24px;
+                    height: 2px;
+                    background-color: white;
+                    transition: transform 0.3s ease, opacity 0.3s ease;
+                }
+            }
+
+            .menu-toggle:focus-visible + .menu-button{
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+
+            .menu-toggle:checked + .menu-button span:nth-child(1){
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle:checked + .menu-button span:nth-child(2){
+                opacity: 0;
+            }
+
+            .menu-toggle:checked + .menu-button span:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav{
+                position: absolute;
+                top: 52px;
+                right: 0;
+                z-index: 10;
+                width: min(240px, 90vw);
+            }
+
+            ul{
+                display: none;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 0;
+                padding: 8px 0;
+                background-color: var(--card-color);
+                border: 1px solid var(--line-color);
+                border-radius: 8px;
+            }
+
+            .menu-toggle:checked ~ .nav ul{
+                display: flex;
+            }
+
+            a{
+                display: block;
+                padding: 12px 20px;
+            }
+        }
+
+        .mid{
+            min-height: 0;
+            justify-content: flex-start;
+            padding-top: 24px;
+        }
+    }
+
+    .bio-container .lower-bio{
+        flex-direction: column;
+        gap: 24px;
+
+        .bio-image-container{
+            flex: none;
+            aspect-ratio: 4 / 3;
+        }
+
+        .bio-text{
+            text-align: left;
+        }
+    }
+
+    .albums-container{
+        .lower-albums{
+            flex-direction: column;
+            gap: 32px;
+
+            .albums-image-container{
+                flex: none;
+                aspect-ratio: 1;
+                width: 100%;
+                max-width: 520px;
+                margin-inline: auto;
+            }
+
+            .albums-text-container{
+                flex: none;
+            }
+        }
+
+        .old-albums .old-albums-slider{
+            padding: 0;
+
+            .old-albums-viewport{
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 12px;
+            }
+
+            .old-albums-track{
+                transform: none;
+            }
+
+            .old-album-card{
+                flex: 0 0 min(70%, 280px);
+                scroll-snap-align: start;
+            }
+
+            .arrow,
+            .old-albums-dots{
+                display: none !important;
+            }
+        }
+    }
+
+    .on-tour-container{
+        .main-on-tour{
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .on-tour-calendar{
+            flex: none;
+            width: 100%;
+            max-width: 480px;
+            margin-inline: auto;
+        }
+
+        .on-tour-info-container{
+            flex: none;
+        }
+
+        .on-tour-last-show{
+            flex-direction: column;
+            margin-top: 3rem;
+
+            .on-tour-image{
+                flex: none;
+                aspect-ratio: 16 / 9;
+            }
+
+            .on-tour-info-last-show{
+                flex: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px){
+    .albums-container .lower-albums .albums-text-container .albums-tracklist{
+        flex-direction: column;
+        gap: 0;
+
+        .left-tracklist,
+        .right-tracklist{
+            flex: none;
+        }
+    }
+    footer .footer-top{
+        flex-wrap: wrap;
+        row-gap: 20px;
+
+        .footer-email,
+        .footer-location{
+            flex: 1 1 40%;
+            min-width: 0;
+        }
+
+        .footer-social{
+            flex: 1 1 100%;
+            justify-content: flex-start;
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .hero-container .right{
+        a{
+            font-size: 13px;
+        }
+
+        ul{
+            gap: 2px 16px;
+        }
+    }
+
+    .bio-container{
+        .bio-title{
+            padding-top: 2rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .lower-bio .bio-image-container{
+            aspect-ratio: 1;
+        }
+    }
+
+    .albums-container{
+        .albums-main-title{
+            padding-top: 2rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .old-albums,
+        .singles-collabs-container{
+            margin-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .singles-collabs-container .single-collab .collab-info{
+            flex-wrap: wrap;
+            gap: 4px 16px;
+
+            .collab-title{
+                flex: 1 1 100%;
+            }
+
+            .collab-subtitle{
+                flex: 1 1 0;
+            }
+
+            .collab-year{
+                flex: 0 0 auto;
+            }
+        }
+    }
+
+    .on-tour-container{
+        .on-tour-title{
+            padding-top: 2rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .on-tour-last-show .on-tour-other-container{
+            flex-direction: column;
+
+            .other-info,
+            .last-show-image{
+                flex: none;
+            }
+        }
+    }
+
+    .contact-container .merch-container{
+        margin-top: 3rem;
+
+        .merch-cards{
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 560px){
+    .albums-container .lower-albums .albums-text-container .albums-tracklist{
+        flex-direction: column;
+        gap: 0;
+
+        .left-tracklist,
+        .right-tracklist{
+            flex: none;
+        }
+    }
+}
